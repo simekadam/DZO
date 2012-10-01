@@ -1,5 +1,7 @@
 function [entropy, bytes_image, bytes_coding] = entropy_single_pixels(im)
 
+%zkouska zmeny v GITu
+
 im = double(im);
 reshape(im.',1,[]);
 histg = hist(im);
