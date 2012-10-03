@@ -16,7 +16,7 @@ function [entropy_aver, bytes_aver_image, bytes_aver_coding, entropy_diff, bytes
     end
 
 %entropy_aver = entropy_single_pixels(avg);
-reshape(avg.',1,[]);
+avg = reshape(avg.',1,[]);
 
 fprintf('AVERAGES:\n');
 entropy_single_pixels(avg);

@@ -18,7 +18,7 @@ for i = 1:2:rows,
     x = x+1;
 end
 
-reshape(b.',1,[]);
+b = reshape(b.',1,[]);
 
 %whos('b');
 %disp(b(35,15));
