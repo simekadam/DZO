@@ -1,0 +1,6 @@
+1. Ano stalo se tak u druheho obrazku im2_stripes.png, pri pouziti parove metody a v prvnim kroku treti metody. Dvojice pixelu jsou u toho brazku vsechny stejne, takze entropie je nula..Stejne tak prumery jsou pro vsechny matice 8x8 stejne takze tam je take entropie rovna nule.
+2. Entropie je 3.
+3. Protoze jsou jednotlive 8x8 matice vyplneny podobnou barvou, tak kdyz odecteme prumer, tak se nam snizi hodnota vsech pixelu nekam hodne blizko k nule -> ukladame mene dat.
+4. obrazek1 - JPEG zabira priblizne 1/3 dat, png tak 2/3 nez pouzite metody.
+	 obrazek2 - u druheho obrazku je na tom JPEG podobne jako pouzite techniky, pouze metoda pixel_pairs poskytuje vyrazne lepsi kompresi. PNG je na tom trochu lepe nez JPEG.(priblizne o polovinu).
+	 obrazek3 - JPEG je vyrazne lepsi nez vsechny pouzite techniky, PNG take, pouze metoda pixel_squares se mu celkem blizi, tam neni rozdil uz tak veliky.

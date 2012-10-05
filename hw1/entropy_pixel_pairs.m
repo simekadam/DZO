@@ -1,13 +1,10 @@
 function [entropy, bytes_image, bytes_coding] = entropy_pixel_pairs(im)
 
-entropy = 0;
-bytes_image = 0;
-bytes_coding = 0;
+
 
 [rows, columns] = size(im);
 b = zeros(rows/2,columns);
 
-%typecast(im(:),'uint32');
 im = double(im);
 
 x=1;
@@ -17,19 +14,14 @@ for i = 1:2:rows,
     end
     x = x+1;
 end
-
+%disp(b);
 b = reshape(b.',1,[]);
 
-%whos('b');
-%disp(b(35,15));
-%disp(im(i,j)*1000 + im(i+1,j));
+%disp(b);
 
-%disp(hist(b));
-%disp(numel(unique(b)));
-
-histg = hist(b,65536);
+histg = hist(b,0:255255);
 histg(histg==0) = [];
-nzhist = histg ./ numel(im);
+nzhist = histg ./ numel(b);
 entropy = -sum(nzhist.*log2(nzhist));
 
 bytes_image = (entropy*(numel(b))/8);

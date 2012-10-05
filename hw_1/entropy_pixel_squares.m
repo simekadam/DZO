@@ -10,8 +10,8 @@ function [entropy_aver, bytes_aver_imageage, bytes_aver_coding, entropy_diff, by
     for i = 1:8:rowCount-7,
         y=1;
         for j = 1:8:columnCount-7,
-            averages( x,y ) = round( mean2( image( i:i+7,[ j j+7] )));
-            image( i:i+7,[j j+7] )  = image( i:i+7, [j j+7] ) - averages( x, y );
+            averages( x,y ) = round( mean2( image( i:i+7,( j:j+7 ) )));
+            image( i:i+7,(j:j+7) )  = image( i:i+7, ( j:j+7 ) ) - averages( x, y );
             y = y+1;
         end
         x = x+1;
@@ -46,7 +46,7 @@ averages = reshape( averages.',1,[] );
         image = reshape(image.',1,[]);
 
         %vystup histogramu
-        histogramOutput = hist(image, 0:255);
+        histogramOutput = hist(image, -255:255);
 
         %sejmu nuly
         histogramOutput( histogramOutput == 0 ) = [];
@@ -56,7 +56,7 @@ averages = reshape( averages.',1,[] );
 
         %tohle snad jakoze pocita tu entropii
         entropy_diff = sum( histogramOutput .* log2( histogramOutput ) )*( -1 );
-        bytes_diff_imageage = ( entropy * ( numel( image ) ) / 8 );
+        bytes_diff_imageage = ( entropy_diff * ( numel( image ) ) / 8 );
         bytes_diff_coding = 2 * numel( unique( image ) );
 
         %vystupy
