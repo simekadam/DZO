@@ -11,21 +11,28 @@ function [t_2D, t_separable] = filtering_times(im, sigmas)
 % t_2D and t_separable, respectively.
 % Thus t_2D and t_separable are 1-by-K vectors.
 %im = im2double(im);
+t_2D = [];
+	t_separable = [];
 
 for sigma = sigmas
 	% find closest greater odd integer ≤ 3·sigma
 	filter_size = (ceil((ceil(sigma*3)/2)+0.5)*2)-1;
 	gauss_filter = fspecial('gauss', filter_size, sigma);
 	gauss_filter1D = fspecial('gauss', [filter_size, 1], sigma);
+
+	
+
 	tic
 	filtered_image = conv2(im, gauss_filter, 'same');
 	toc
 	timer2d = toc;
+	disp(size(t_2D));
+	t_2D(end+1) = timer2d;
 	tic
 	filtered_image2 = conv2(gauss_filter1D, gauss_filter1D, im, 'same');
 	toc
 	timer1d = toc;
-
+	t_separable(end+1) = timer1d;
 	fprintf('%i test %i\n', timer1d, timer2d);
 
 	% THIS CODE CHECKS IF ARE BOTH TRANSFORMS PRODUCING SAME RESULTS (SLIGHT DIFFERENCE IS CAUSED BY NUMERIC ROUNDING WHILE COMPUTING)
@@ -34,5 +41,5 @@ for sigma = sigmas
 	% [row_val row_ind] = max(abs(im_diff), [], 1);
 	% disp(max(row_val)<10e-13);
 
-
+	
 end
