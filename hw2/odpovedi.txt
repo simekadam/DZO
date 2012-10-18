@@ -1,0 +1,8 @@
+1.
+No je to M·N vs M+N ve prospech aplikace po jednotlivych vektorech..
+2.
+filter_size = (ceil((ceil(sigma*5)/2)+0.5)*2)-1; //filter size je vysledna velikost filtru..mame sude cislo a odcitame jednicku..
+3.
+No tak nejak laicky moc do toho bohuzel nevidim, ale cim vetsi sigma tim vic rozostrime obrazek a tim je tedy rozdil vetsi..U prevzorkovani je to naopak, kdyz mame totiz nekvalitni obrazek uz na vstupu, tak ho uz tolik podvzorkovanim a naslednym prevzorkovanim neznicime, takze tam to s roustouci sigmou klesa..jde tam vlastne o ten aliasing, kterej u vetsich sigma nehraje takovou roli
+4.
+Z vizualniho pozorovani se mi zda obrazek nejlepsi pri sigma 1.5 az 2

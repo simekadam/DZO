@@ -33,7 +33,7 @@ for sigma = sigmas
 	toc
 	timer1d = toc;
 	t_separable(end+1) = timer1d;
-	fprintf('%i test %i\n', timer1d, timer2d);
+	%fprintf('%i test %i\n', timer1d, timer2d);
 
 	% THIS CODE CHECKS IF ARE BOTH TRANSFORMS PRODUCING SAME RESULTS (SLIGHT DIFFERENCE IS CAUSED BY NUMERIC ROUNDING WHILE COMPUTING)
 	% im_diff = filtered_image - filtered_image2;
