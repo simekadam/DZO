@@ -20,7 +20,7 @@ function [imf] = reduceNoise(im, amount, filter, radius)
   
   K = amount*gauss_filter + (1-amount);
 %   mesh(K);
-  imf = im;
+  imf = medfilt2(K, im);
   
   
 end
